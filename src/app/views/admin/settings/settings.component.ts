@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { User } from "src/app/models/user";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { ChemicalsService } from "src/app/services/chemicals/chemicals.service";
 
 @Component({
   selector: "app-settings",
@@ -12,7 +13,7 @@ export class SettingsComponent implements OnInit {
   user:User;
   userForm: FormGroup;
 
-  constructor(private authServices: AuthService, private fb: FormBuilder) {}
+  constructor(private authServices: AuthService, private fb: FormBuilder, private chemicalService:ChemicalsService) {}
 
   ngOnInit(): void {
     this.getRoles();
@@ -36,6 +37,18 @@ export class SettingsComponent implements OnInit {
     this.authServices.getRoles().subscribe(
       (data: any) => {
         this.roles = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  backupDatabase(){
+    this.chemicalService.backupdatabase().subscribe(
+      (data: any) => {
+        console.log(data);
+        location.reload();
       },
       (error) => {
         console.log(error);

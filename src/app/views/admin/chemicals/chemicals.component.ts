@@ -42,6 +42,7 @@ export class ChemicalsComponent implements OnInit {
     this.isReseacrcher = this.authServices.isSuperAdmin();
 
     this.chemicalForm = new FormGroup({
+      id: new FormControl(""),
       name: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       timeline: new FormControl("", Validators.required),
@@ -114,6 +115,7 @@ export class ChemicalsComponent implements OnInit {
         name: chemical.name,
         description: chemical.description,
         timeline: chemical.timeline,
+        id: chemical.id,
         //MAP ITEMS IN FORM
       });
 
@@ -145,7 +147,7 @@ export class ChemicalsComponent implements OnInit {
     this.loading = true;
     if (this.isEdit) {
       this.chemicalSevice
-        .updateChemical(this.chemical.id, this.chemicalForm.value)
+        .updateChemical(this.chemicalForm.value.id, this.chemicalForm.value)
         .subscribe(
           (data: any) => {
             this.getChemicals();

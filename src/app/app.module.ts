@@ -32,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UsersComponent } from "./views/admin/users/users.component";
 import { RolesComponent } from "./views/admin/roles/roles.component";
 import { ChemicalsComponent } from "./views/admin/chemicals/chemicals.component";
+import { ReportsComponent } from './views/admin/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ChemicalsComponent } from "./views/admin/chemicals/chemicals.component"
     UsersComponent,
     RolesComponent,
     ChemicalsComponent,
+    ReportsComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,9 @@ export class ChemicalsService {
   getChemicals() {
     return this.http.get(`${this.baseUrl}chemicals`);
   }
+  getReports() {
+    return this.http.get(`${this.baseUrl}chemicals/reports`);
+  }
 
   getChemical(id) {
     return this.http.get(`${this.baseUrl}chemicals/${id}`);
@@ -33,5 +36,8 @@ export class ChemicalsService {
 
   searchChemicals(search) {
     return this.http.post(`${this.baseUrl}chemicals/search/mix`, search);
+  }
+  backupdatabase() {
+    return this.http.post(`${this.baseUrl}chemicals/backup/database`, {});
   }
 }

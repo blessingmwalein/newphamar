@@ -16,6 +16,7 @@ import { UsersComponent } from "./views/admin/users/users.component";
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
+import { ReportsComponent } from "./views/admin/reports/reports.component";
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "settings", component: SettingsComponent },
       { path: "chemicals", component: ChemicalsComponent },
+      { path: "reports", component: ReportsComponent },
       { path: "users", component: UsersComponent },
       { path: "roles", component: RolesComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
